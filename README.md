@@ -1,2 +1,1 @@
-# digital-qc
-Conceptia Konnect 
+Conceptia
