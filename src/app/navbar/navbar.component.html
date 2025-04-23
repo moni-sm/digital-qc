@@ -1,0 +1,40 @@
+<nav class="navbar">
+  <!-- Left Side -->
+  <div class="navbar-left">
+    <a href="/" class="brand">Digital QC</a>
+  </div>
+
+  <!-- Middle Links -->
+  <div class="navbar-center">
+    <a routerLink="/home">Home</a>
+    <a routerLink="/explore">Explore</a>
+    <a routerLink="/contact">Contact</a>
+  </div>
+
+  <!-- Right Side - Utilities Dropdown -->
+  <div class="navbar-right">
+    <div class="dropdown">
+      Utilities
+      <div class="dropdown-content">
+        <div
+          style="border: 2px solid #007bff; padding: 16px; border-radius: 8px; margin: 20px; font-family: Arial; color: black;"
+          (click)="openPopup('https://stop-watch-sandy-mu.vercel.app/')">
+          Stopclock
+        </div>
+        <div
+          style="border: 2px solid #007bff; padding: 16px; border-radius: 8px; margin: 20px; font-family: Arial; color: black;"
+          (click)="openPopup('https://unit-conversion-teal.vercel.app/')">
+          Unit Conversion
+        </div>
+      </div>
+
+      <!-- Popup container -->
+      <div *ngIf="showPopup" class="popup-overlay">
+        <div class="popup-box">
+          <button class="close-button" (click)="closePopup()">✖</button>
+          <iframe [src]="popupUrl | safeUrl" width="100%" height="500px" style="border: none;"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
