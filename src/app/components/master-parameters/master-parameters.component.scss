@@ -1,0 +1,6 @@
+.status-badge {
+  @apply px-2 py-1 text-xs rounded-full;
+}
+.success {
+  @apply bg-green-100 text-green-800;
+}
