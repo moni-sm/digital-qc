@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Routes } from '@angular/router';
 
 
@@ -14,3 +15,21 @@ export const routes: Routes = [
 
 ];
 
+=======
+import { Routes } from '@angular/router';
+
+
+
+export const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },   // Redirect blank to home
+  { path: '', redirectTo: 'dynamic-forms/components/dynamic-field', pathMatch: 'full' },
+  { path: 'home', loadComponent: () => import('./home/home.component').then(m => m.HomeComponent) },
+  { path: 'form2', loadComponent: () => import('./forms/form2/form2.component').then(m => m.Form2Component) },
+  { path: 'form3', loadComponent: () => import('./forms/form3/form3.component').then(m => m.Form3Component) },
+  { path: 'signature', loadComponent: () => import('./signature/signature.component').then(m => m.SignatureComponent) },
+  { path: 'forms', loadComponent: () => import('./forms/form-field1/form-field.component').then(m=> m.Form1Component) },
+
+
+];
+
+>>>>>>> 1505aa24dbf61226c00c70103f3e6b81f7bf0658
