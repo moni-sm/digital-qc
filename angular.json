@@ -5,7 +5,11 @@
   "projects": {
     "your-project-name": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,17 +17,34 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/digital-qc",
+            "outputPath": "dist/your-project-name",
             "index": "src/index.html",
             "main": "src/main.ts",
+
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["./src/styles.scss"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "/assets/"
+              }
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
             "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "sourceMap": true,
             "vendorChunk": true,
-            "namedChunks": true
+            "namedChunks": true,
+            "progress": true
           },
           "configurations": {
             "production": {
@@ -56,9 +77,12 @@
             "development": {
               "sourceMap": true,
               "optimization": false,
-              "buildOptimizer": false
+              "buildOptimizer": false,
+              "vendorChunk": true,
+              "namedChunks": true
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -67,10 +91,12 @@
             "hmr": true,
             "liveReload": true,
             "open": true
+
           },
           "configurations": {
             "production": {
-              "buildTarget": "your-project-name:build:production"
+              "buildTarget": "your-project-name:build:production",
+              "hmr": false
             }
           }
         },
@@ -84,11 +110,16 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["./src/styles.scss"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
             "scripts": [],
             "sourceMap": true
           }
@@ -97,6 +128,7 @@
     }
   },
   "cli": {
-    "analytics": "7063c1f3-8dbc-4c82-a7d0-3d7da44805bb"
+    "analytics": "7063c1f3-8dbc-4c82-a7d0-3d7da44805bb",
+    "packageManager": "npm"
   }
 }

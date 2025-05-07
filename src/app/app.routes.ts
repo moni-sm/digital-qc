@@ -6,10 +6,10 @@ export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },   // Redirect blank to home
   { path: '', redirectTo: 'dynamic-forms/components/dynamic-field', pathMatch: 'full' },
   { path: 'home', loadComponent: () => import('./home/home.component').then(m => m.HomeComponent) },
-  { path: 'explore', loadComponent: () => import('./explore/explore.component').then(m => m.ExploreComponent) },
-  { path: 'contact', loadComponent: () => import('./contact/contact.component').then(m => m.ContactComponent) },
+  { path: 'form2', loadComponent: () => import('./forms/form2/form2.component').then(m => m.Form2Component) },
+  { path: 'form3', loadComponent: () => import('./forms/form3/form3.component').then(m => m.Form3Component) },
   { path: 'signature', loadComponent: () => import('./signature/signature.component').then(m => m.SignatureComponent) },
-  { path: 'forms', loadComponent: () => import('../app/components/testing-parent/testing-parent.component.ts/testing-parent.component').then(m => m.TestingParentComponent) },
+  { path: 'forms', loadComponent: () => import('./forms/form-field1/form-field.component').then(m=> m.Form1Component) },
 
 
 ];
