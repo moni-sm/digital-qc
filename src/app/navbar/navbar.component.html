@@ -1,0 +1,49 @@
+<!-- Navbar -->
+<nav class="flex justify-between items-center px-6 py-4 bg-gray-800 text-white">
+  <!-- Left Side -->
+  <div class="flex items-center">
+    <a routerLink="/home" class="text-2xl font-bold">Digital QC</a>
+  </div>
+
+  <!-- Center Links -->
+  <a routerLink="/home" routerLinkActive="text-gray-400" class="hover:text-gray-400">Home</a>
+  <a routerLink="/form2" routerLinkActive="text-gray-400" class="hover:text-gray-400">F2</a>
+  <a routerLink="/form3" routerLinkActive="text-gray-400" class="hover:text-gray-400">F3</a>
+  <a routerLink="/signature" routerLinkActive="text-gray-400" class="hover:text-gray-400">Signature</a>
+  <a routerLink="/forms" routerLinkActive="text-gray-400" class="hover:text-gray-400">Forms</a>
+
+
+
+  <!-- Right Side (Dropdown) -->
+  <div class="relative">
+    <button class="px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-md" (click)="toggleDropdown()">
+      Utilities
+    </button>
+
+    <!-- Dropdown Menu -->
+    <div *ngIf="dropdownOpen"
+      class="absolute right-0 mt-2 bg-white text-black rounded-lg shadow-lg overflow-hidden z-20">
+      <button type="button" (click)="openPopup('https://stop-watch-sandy-mu.vercel.app/')"
+        class="block w-full text-left px-6 py-4 border-b border-gray-200 hover:bg-gray-100">
+        Stopclock
+      </button>
+      <button type="button" (click)="openPopup('https://unit-conversion-teal.vercel.app/')"
+        class="block w-full text-left px-6 py-4 hover:bg-gray-100">
+        Unit Conversion
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Popup Overlay -->
+<div *ngIf="showPopup"
+  class="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50">
+  <div class="bg-white w-11/12 max-w-3xl h-4/5 rounded-2xl shadow-2xl flex flex-col relative animate-fadeIn">
+    <button (click)="closePopup()"
+      class="absolute top-4 right-4 bg-red-500 hover:bg-red-600 text-white rounded-full p-2 text-lg font-bold">
+      ✖
+    </button>
+    <iframe [src]="popupUrl | safeUrl" class="flex-1 w-full rounded-b-2xl" title="Utility content popup">
+    </iframe>
+  </div>
+</div>

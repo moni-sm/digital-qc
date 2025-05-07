@@ -1,0 +1,31 @@
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+  <div class="border border-green-600 p-4 w-full max-w-md bg-white shadow rounded">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-4">
+      <div class="flex items-center">
+        <label for="ship" class="w-32">Ship</label>
+        <input id="ship" formControlName="ship" class="flex-1 bg-sky-900 text-white p-1 rounded" />
+      </div>
+
+      <div class="flex items-center">
+        <label for="inspdate" class="w-32">Date</label>
+        <input id="inspdate" type="date" formControlName="inspdate" class="flex-1 bg-sky-900 text-white p-1 rounded" />
+      </div>
+
+      <div class="flex items-center">
+        <label for="occasion" class="w-32">Occasion</label>
+        <input id="occasion" formControlName="occasion" class="flex-1 bg-sky-900 text-white p-1 rounded" />
+      </div>
+
+      <div class="flex items-center">
+        <label for="reps" class="w-32">Reps Present</label>
+        <input id="reps" formControlName="Reps" class="flex-1 bg-sky-900 text-white p-1 rounded" />
+      </div>
+
+      <div class="text-center pt-4">
+        <button type="submit" class="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600">
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
