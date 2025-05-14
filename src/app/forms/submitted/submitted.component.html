@@ -1,0 +1,106 @@
+<!-- submitted.component.html -->
+<div class="container mx-auto p-4">
+  <h1 class="text-2xl font-bold mb-6">Submitted Forms</h1>
+
+  <div *ngFor="let submission of submissions; let i = index" class="mb-8 border rounded-lg shadow-md p-6 bg-white">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-xl font-semibold">Inspection Report #{{ submissions.length - i }}</h2>
+      <span class="text-gray-500">{{ submission.submittedAt | date:'medium' }}</span>
+    </div>
+
+    <!-- Form1 Data -->
+    <div class="mb-6">
+      <h3 class="text-lg font-medium border-b pb-2 mb-3">Inspection Details</h3>
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <p class="font-semibold">Ship</p>
+          <p>{{ submission.form1Data.ship || '—' }}</p>
+        </div>
+        <div>
+          <p class="font-semibold">Date</p>
+          <p>{{ submission.form1Data.inspdate || '—' }}</p>
+        </div>
+        <div>
+          <p class="font-semibold">Occasion</p>
+          <p>{{ submission.form1Data.occasion || '—' }}</p>
+        </div>
+        <div>
+          <p class="font-semibold">Representatives Present</p>
+          <p>{{ submission.form1Data.repsPresent || '—' }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form2 Entries Table with Overall Status at bottom -->
+    <div class="mb-6">
+      <h3 class="text-lg font-medium border-b pb-2 mb-3">Inspection Items</h3>
+      <div class="overflow-x-auto">
+        <table class="min-w-full border">
+          <thead>
+            <tr class="bg-gray-100">
+              <th class="border px-4 py-2 text-left">Title</th>
+              <th class="border px-4 py-2 text-left">Checks</th>
+              <th class="border px-4 py-2 text-left">Observation</th>
+              <th class="border px-4 py-2 text-left">Remarks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of submission.form2Entries">
+              <td class="border px-4 py-2">{{ item.title || '—' }}</td>
+              <td class="border px-4 py-2">{{ item.checks || '—' }}</td>
+              <td class="border px-4 py-2">{{ item.observation || '—' }}</td>
+              <td class="border px-4 py-2">{{ item.remarks || '—' }}</td>
+            </tr>
+
+            <!-- Overall Status Row at Table Bottom -->
+            <tr class="bg-gray-50">
+              <td colspan="3" class="border px-4 py-2 text-right font-bold">Overall Status</td>
+              <td class="border px-4 py-2 text-center">
+                <span *ngIf="submission.overallStatus"
+                      class="px-3 py-1 rounded text-white font-bold"
+                      [ngClass]="{
+                        'bg-green-500': submission.overallStatus === 'Satisfactory',
+                        'bg-yellow-500': submission.overallStatus === 'Partially Satisfactory',
+                        'bg-red-500': submission.overallStatus === 'Unsatisfactory'
+                      }">
+                  {{ submission.overallStatus }}
+                </span>
+                <span *ngIf="!submission.overallStatus" class="font-bold">—</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Recommendations Section -->
+    <div class="mb-6">
+      <h3 class="text-lg font-medium border-b pb-2 mb-3">Recommendations</h3>
+      <p class="whitespace-pre-line bg-gray-50 p-4 rounded">{{ submission.recommendations || '—' }}</p>
+    </div>
+
+    <!-- Attachments -->
+    <div *ngIf="submission.attachments?.length" class="mb-4">
+      <h3 class="text-lg font-medium border-b pb-2 mb-3">Attachments</h3>
+      <div *ngFor="let attachment of submission.attachments" class="mb-2">
+        <img *ngIf="attachment.content"
+             [src]="attachment.content"
+             alt="Attachment"
+             class="max-w-xs border rounded">
+        <p class="mt-1 text-sm">{{ attachment.name }}</p>
+      </div>
+    </div>
+
+    <!-- Download Button -->
+    <div class="flex justify-end mt-4">
+      <button (click)="downloadAsPdf(i)"
+              class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+        Download as PDF
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="!submissions.length" class="text-center py-8 text-gray-500">
+    No submitted forms found.
+  </div>
+</div>

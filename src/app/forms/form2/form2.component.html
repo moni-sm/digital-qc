@@ -1,0 +1,41 @@
+<div class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50"
+     role="dialog"
+     aria-labelledby="form2-modal-title">
+  <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+    <h2 id="form2-modal-title" class="text-xl font-bold mb-4 text-center">Inspection Entry</h2>
+    <form *ngIf="form2" [formGroup]="form2" (ngSubmit)="onSubmit()" class="space-y-4">
+      <div class="flex items-center">
+        <label for="title1" class="w-32">Title</label>
+        <select id="title1" formControlName="title" class="flex-1 bg-sky-900 text-white p-1 rounded">
+          <option value="">-- Select --</option>
+          <option *ngFor="let type of inspectionTypes" [value]="type">{{ type }}</option>
+        </select>
+      </div>
+
+      <div class="flex items-center">
+        <label for="checks" class="w-32">Check</label>
+        <select id="checks" formControlName="checks" class="flex-1 bg-sky-900 text-white p-1 rounded">
+          <option value="">-- Select --</option>
+          <option *ngFor="let part of structureParts" [value]="part">{{ part }}</option>
+        </select>
+      </div>
+
+      <div class="flex items-center">
+        <label for="observation" class="w-32">Observation</label>
+        <input id="observation" formControlName="observation" class="flex-1 bg-sky-900 text-white p-1 rounded" />
+      </div>
+
+      <div class="flex items-center">
+        <label for="remarks" class="w-32">Remarks</label>
+        <input id="remarks" formControlName="remarks" class="flex-1 bg-sky-900 text-white p-1 rounded" />
+      </div>
+
+      <div class="flex justify-between pt-4">
+        <div class="flex justify-end space-x-2">
+          <button type="button" (click)="onCancel()" class="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500">Cancel</button>
+          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

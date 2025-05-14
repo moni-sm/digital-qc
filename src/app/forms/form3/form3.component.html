@@ -1,0 +1,111 @@
+<app-form-field1 *ngIf="formField1" (form1Submit)="handleForm1Submit($event)">
+</app-form-field1>
+
+<!-- Displaying form1 data -->
+<div class="mb-6 text-center">
+  <h2 class="text-2xl font-bold text-red-700 mb-2">Parameters of QC Checks</h2><br>
+
+  <div class="grid grid-cols-4 gap-y-2 text-sm text-left max-w-4xl mx-auto">
+    <div class="font-semibold">Ship</div>
+    <div>{{ form1Data?.ship || '—' }}</div>
+
+    <div class="font-semibold">Date</div>
+    <div>{{ form1Data?.inspdate || '—' }}</div>
+
+    <div class="font-semibold">Occasion</div>
+    <div>{{ form1Data?.occasion || '—' }}</div>
+
+    <div class="font-semibold">Reps Present</div>
+    <div>{{ form1Data?.repsPresent || '—' }}</div>
+
+    <div class="font-semibold">Trial Title</div>
+    <div class="col-span-3">HANGAR STRUCTURE SOUNDNESS AND PRESERVATION INSPECTION</div>
+  </div>
+</div>
+
+<!-- Displaying form2 data in a table -->
+<div class="p-4 max-w-4xl mx-auto">
+  <table class="table-auto w-full border border-collapse border-gray-300">
+    <thead>
+      <tr>
+        <th class="border px-4 py-2">Title</th>
+        <th class="border px-4 py-2">Checks</th>
+        <th class="border px-4 py-2">Observation</th>
+        <th class="border px-4 py-2">Remarks</th>
+        <th class="border px-4 py-2">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of form2DataList; let i = index">
+        <td class="border px-4 py-2">{{ item.title }}</td>
+        <td class="border px-4 py-2">{{ item.checks }}</td>
+        <td class="border px-4 py-2">{{ item.observation }}</td>
+        <td class="border px-4 py-2">{{ item.remarks }}</td>
+        <td class="border px-4 py-2 text-center space-x-2">
+          <button (click)="editRow(i)" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
+            Edit
+          </button>
+          <button (click)="deleteRow(i)" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
+            Delete
+          </button>
+        </td>
+
+      </tr>
+
+      <!-- Display Overall Status at the bottom -->
+      <tr *ngIf="recommendationData.OverallStatus" class="bg-gray-100">
+        <td colspan="4" class="border px-4 py-2 text-right font-bold">Overall Status</td>
+        <td class="border px-4 py-2 text-center">
+          <span class="bg-blue-500 text-white px-4 py-1 rounded">{{ recommendationData.OverallStatus }}</span>
+        </td>
+      </tr>
+
+
+    </tbody>
+  </table>
+
+  <div class="flex justify-end mt-4">
+    <button (click)="openForm2()" class="bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600">
+      Add Another
+    </button>
+  </div>
+</div>
+
+<!-- Recommendation/Remarks Section -->
+<!-- Recommendation/Remarks Section -->
+<div class="max-w-4xl mx-auto mt-8">
+  <h3 class="font-semibold text-gray-800 mb-2">Recommendation/Remarks</h3>
+  <p *ngIf="recommendationData?.Recommendations; else noRecommendation" class=" bg-gray-50">
+    {{ recommendationData.Recommendations }}
+  </p>
+  <ng-template #noRecommendation>
+    <div class="h-16 rounded bg-white"></div>
+  </ng-template>
+</div>
+
+<!-- Attachment Section -->
+<div class="max-w-4xl mx-auto mt-6">
+  <h3 class="font-semibold text-gray-800 mb-2">Attachment</h3>
+
+  <ng-container *ngIf="recommendationData?.attachment; else noAttachment">
+    <div class=" bg-gray-50">
+
+      <img *ngIf="recommendationData?.attachment?.content" [src]="recommendationData.attachment?.content"
+        alt="Attachment Image" class="w-64 border rounded" />
+    </div>
+  </ng-container>
+
+  <ng-template #noAttachment>
+    <div class="h-16 rounded bg-white flex items-center justify-center text-gray-400">
+
+    </div>
+  </ng-template>
+</div>
+
+<button (click)="onSubmitForm3()" class="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700">
+  Submit
+</button>
+
+
+

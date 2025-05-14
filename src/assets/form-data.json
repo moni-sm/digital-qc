@@ -1,0 +1,124 @@
+{
+  "shipdetails": {
+    "Title": "HANGAR STRUCTURE SOUNDNESS AND PRESERVATION INSPECTION",
+    "sectiontype": "single",
+    "controls": [
+      {
+        "name": "ship",
+        "label": "Ship",
+        "type": "text",
+        "value": "INS Vipul"
+      },
+      {
+        "name": "inspdate",
+        "label": "Date",
+        "type": "date",
+        "value": ""
+      },
+      {
+        "name": "occasion",
+        "label": "Occasion",
+        "type": "text",
+        "value": ""
+      },
+      {
+        "name": "Reps",
+        "label": "Reps Present",
+        "type": "text",
+        "value": "A,B"
+      }
+    ]
+  },
+  "hangarchecks": {
+    "Title": "HANGAR STRUCTURE SOUNDNESS AND PRESERVATION INSPECTION",
+    "sectiontype": "multiple",
+    "controls": [
+      {
+        "name": "title",
+        "label": "Choose the type of inspection",
+        "type": "select",
+        "options": [
+          {
+            "label": "Structural Defects",
+            "value": "Structural Defects"
+          },
+          {
+            "label": "Other Defects",
+            "value": "Other Defects"
+          },
+          {
+            "label": "Paint Coating",
+            "value": "Paint Coating"
+          }
+        ],
+        "value": ""
+      },
+      {
+        "name": "checks",
+        "label": "Choose the type of strucure part",
+        "type": "select",
+        "options": [
+          {
+            "label": "Fwd Bulkhead",
+            "value": "Fwd Bulkhead"
+          },
+          {
+            "label": "Longitudinal Bulkhead (P&S)",
+            "value": "Longitudinal Bulkhead (P&S)"
+          },
+          {
+            "label": "Aft hangar Door",
+            "value": "Aft hangar Door"
+          }
+        ],
+        "value": ""
+      },
+      {
+        "name": "observation",
+        "label": "Observation",
+        "type": "text",
+        "value": ""
+      },
+      {
+        "name": "remarks",
+        "label": "Remarks",
+        "type": "text",
+        "value": ""
+      }
+    ]
+  },
+  "recommendations": {
+    "Title": "Recommendations",
+    "sectiontype": "single",
+    "controls": [
+      {
+        "name": "OverallStatus",
+        "label": "Overall status",
+        "type": "select",
+        "options": [
+          {
+            "label": "Satisfactory",
+            "value": "Satisfactory"
+          },
+          {
+            "label": "Unsatisfactory",
+            "value": "Unsatisfactory"
+          }
+        ],
+        "value": ""
+      },
+      {
+        "name": "Recommendations",
+        "label": "Recommendations",
+        "type": "text",
+        "value": ""
+      },
+      {
+        "name": "Attachements",
+        "label": "Occasion",
+        "type": "file",
+        "value": ""
+      }
+    ]
+  }
+}

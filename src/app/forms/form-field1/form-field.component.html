@@ -1,0 +1,84 @@
+<!-- Modal Trigger (You can put this button anywhere you want to open the form) -->
+<button (click)="openForm()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+  Open Inspection Details Form
+</button> <br><br><br>
+
+<!-- Button to trigger recommendation/attachment form -->
+<button (click)="openRecommendationForm()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+  Add Recommendation/Attachment
+</button>
+
+<!-- Recommendation Form (shown directly within form-field) -->
+<!-- Recommendation & Attachment Modal -->
+
+
+<!-- Recommendation Form Modal -->
+<div *ngIf="showRecommendationForm" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
+  <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+    <h2 class="text-xl font-bold mb-4 text-center">Recommendation & Attachment</h2>
+
+    <form [formGroup]="recommendationForm" (ngSubmit)="submitRecommendation()" class="space-y-4">
+      <!-- Overall Status Field -->
+      <div class="flex items-center">
+        <label for="status" class="w-32">Overall Status</label>
+        <select id="status" formControlName="OverallStatus" class="flex-1 bg-sky-900 text-white p-1 rounded">
+          <option value="">Select</option>
+          <option value="Satisfactory">Satisfactory</option>
+          <option value="Unsatisfactory">Unsatisfactory</option>
+        </select>
+      </div>
+
+      <!-- Recommendations Field -->
+      <div class="flex items-center">
+        <label for="recommendations" class="w-32">Recommendations</label>
+        <input id="recommendations" formControlName="Recommendations" class="flex-1 bg-sky-900 text-white p-1 rounded" />
+      </div>
+
+      <!-- Attachments Field -->
+      <div class="flex items-center">
+        <label for="attachments" class="w-32">Attachment</label>
+        <input type="file" id="attachments" (change)="onFileSelected($event)" class="flex-1 bg-sky-900 text-white p-1 rounded" />
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex justify-between pt-4">
+        <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Save</button>
+        <button type="button" (click)="closeRecommendationForm()" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Close</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<!-- Form Modal (Hidden by default, shown when formField1 is true) -->
+<div *ngIf="formField1" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
+  <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+    <h2 id="form1-modal-title" class="text-xl font-bold mb-4 text-center">Inspection Details</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-4">
+      <div class="flex items-center">
+        <label for="ship" class="w-32">Ship</label>
+        <input id="ship" formControlName="ship" class="flex-1 bg-sky-900 text-white p-1 rounded" />
+      </div>
+
+      <div class="flex items-center">
+        <label for="date" class="w-32">Date</label>
+        <input type="date" id="date" formControlName="date" class="flex-1 bg-sky-900 text-white p-1 rounded" />
+      </div>
+
+      <div class="flex items-center">
+        <label for="occasion" class="w-32">Occasion</label>
+        <input id="occasion" formControlName="occasion" class="flex-1 bg-sky-900 text-white p-1 rounded" />
+      </div>
+
+      <div class="flex items-center">
+        <label for="repsPresent" class="w-32">Reps Present</label>
+        <input id="repsPresent" formControlName="repsPresent" class="flex-1 bg-sky-900 text-white p-1 rounded" />
+      </div>
+
+      <div class="flex justify-between pt-4">
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save</button>
+        <button type="button" (click)="closeForm()" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Close</button>
+      </div>
+    </form>
+  </div>
+</div>

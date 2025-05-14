@@ -1,0 +1,38 @@
+<div class="max-w-5xl mx-auto mt-10">
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-2xl font-bold">Quality-Control Trials</h1>
+    <button (click)="startNewTrial()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+      + New Trial
+    </button>
+  </div>
+
+  <table class="table-auto w-full border border-collapse border-gray-300">
+    <thead>
+      <tr class="bg-gray-100">
+        <th class="border px-4 py-2 text-left">Trial Title</th>
+        <th class="border px-4 py-2">Date</th>
+        <th class="border px-4 py-2">Ship</th>
+        <th class="border px-4 py-2">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let t of trials">
+        <td class="border px-4 py-2">{{ t.trialTitle }}</td>
+        <td class="border px-4 py-2 text-center">{{ t.date  }}</td>
+        <td class="border px-4 py-2 text-center">{{ t.ship }}</td>
+        <td class="border px-4 py-2 text-center">
+          <button (click)="viewTrial(t.trialTitle)"
+                  class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
+            View
+          </button>
+        </td>
+      </tr>
+
+      <tr *ngIf="trials.length === 0">
+        <td colspan="4" class="border px-4 py-6 text-center text-gray-500">
+          No trials saved yet. Click “New Trial” to create one.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

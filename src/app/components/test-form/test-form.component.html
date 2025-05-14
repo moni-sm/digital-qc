@@ -1,0 +1,163 @@
+<<<<<<< HEAD
+<form [formGroup]="testForm" (ngSubmit)="onSubmit()" class="space-y-4">
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+    <!-- Parameter Name -->
+    <div>
+      <label for="parameterName" class="block text-sm font-medium text-gray-700">Parameter Name</label>
+      <input
+        id="parameterName"
+        type="text"
+        formControlName="name"
+        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+        required
+      >
+    </div>
+
+    <!-- Unit -->
+    <div>
+      <label for="unitSelect" class="block text-sm font-medium text-gray-700">Unit</label>
+      <select
+        id="unitSelect"
+        formControlName="Units"
+        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+      >
+        <option value="">Select Unit</option>
+        <option *ngFor="let unit of units" [value]="unit">{{unit}}</option>
+      </select>
+    </div>
+
+    <!-- Specified Value -->
+    <div class="sm:col-span-2">
+      <label for="specifiedValue" class="block text-sm font-medium text-gray-700">Specified Value</label>
+      <input
+        id="specifiedValue"
+        type="text"
+        formControlName="SpecifiedValue"
+        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+      >
+    </div>
+
+    <!-- Measured Value -->
+    <div class="sm:col-span-2">
+      <label for="measuredValue" class="block text-sm font-medium text-gray-700">Measured Value</label>
+      <input
+        id="measuredValue"
+        type="number"
+        step="0.01"
+        formControlName="MeasuredValue"
+        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+      >
+    </div>
+
+    <!-- Remark -->
+    <div class="sm:col-span-2">
+      <label for="remarkSelect" class="block text-sm font-medium text-gray-700">Remark</label>
+      <select
+        id="remarkSelect"
+        formControlName="Remark"
+        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+      >
+        <option value="">Select Remark</option>
+        <option *ngFor="let remark of remarks" [value]="remark">{{remark}}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="flex justify-end space-x-3 mt-6">
+    <button
+      type="button"
+      (click)="onCancel()"
+      class="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300"
+    >
+      Cancel
+    </button>
+    <button
+      type="submit"
+      class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+    >
+      Save
+    </button>
+  </div>
+</form>
+=======
+<form [formGroup]="testForm" (ngSubmit)="onSubmit()" class="space-y-4">
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+    <!-- Parameter Name -->
+    <div>
+      <label for="parameterName" class="block text-sm font-medium text-gray-700">Parameter Name</label>
+      <input
+        id="parameterName"
+        type="text"
+        formControlName="name"
+        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+        required
+      >
+    </div>
+
+    <!-- Unit -->
+    <div>
+      <label for="unitSelect" class="block text-sm font-medium text-gray-700">Unit</label>
+      <select
+        id="unitSelect"
+        formControlName="Units"
+        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+      >
+        <option value="">Select Unit</option>
+        <option *ngFor="let unit of units" [value]="unit">{{unit}}</option>
+      </select>
+    </div>
+
+    <!-- Specified Value -->
+    <div class="sm:col-span-2">
+      <label for="specifiedValue" class="block text-sm font-medium text-gray-700">Specified Value</label>
+      <input
+        id="specifiedValue"
+        type="text"
+        formControlName="SpecifiedValue"
+        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+      >
+    </div>
+
+    <!-- Measured Value -->
+    <div class="sm:col-span-2">
+      <label for="measuredValue" class="block text-sm font-medium text-gray-700">Measured Value</label>
+      <input
+        id="measuredValue"
+        type="number"
+        step="0.01"
+        formControlName="MeasuredValue"
+        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+      >
+    </div>
+
+    <!-- Remark -->
+    <div class="sm:col-span-2">
+      <label for="remarkSelect" class="block text-sm font-medium text-gray-700">Remark</label>
+      <select
+        id="remarkSelect"
+        formControlName="Remark"
+        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+      >
+        <option value="">Select Remark</option>
+        <option *ngFor="let remark of remarks" [value]="remark">{{remark}}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="flex justify-end space-x-3 mt-6">
+    <button
+      type="button"
+      (click)="onCancel()"
+      class="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300"
+    >
+      Cancel
+    </button>
+    <button
+      type="submit"
+      class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+    >
+      Save
+    </button>
+  </div>
+</form>
+>>>>>>> 1505aa24dbf61226c00c70103f3e6b81f7bf0658

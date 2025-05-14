@@ -1,0 +1,87 @@
+
+<div class="max-w-2xl mx-auto p-6 bg-gray-50 rounded-lg shadow-md">
+  <h1 class="text-2xl font-bold text-gray-800 mb-6">Digital Signature Form</h1>
+
+  <!-- Name Canvas -->
+  <div class="mb-6">
+    <label for="userNameInput" class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
+    <div class="relative">
+      <input id="userNameInput" [(ngModel)]="userName" placeholder="Type or draw your name"
+        class="w-full border border-gray-300 rounded-lg p-3 bg-transparent z-10 relative">
+
+      <canvas #nameCanvas width="500" height="50"
+        class="absolute top-0 left-0 border border-gray-300 rounded-lg bg-white w-full h-full cursor-crosshair"
+        (mousedown)="startDrawing($event, 'name')"
+        (touchstart)="startDrawing($event, 'name')"
+        (mousemove)="draw($event)"
+        (touchmove)="draw($event)"
+        (mouseup)="stopDrawing()"
+        (mouseleave)="stopDrawing()"
+        (touchend)="stopDrawing()">
+      </canvas>
+    </div>
+    <button (click)="clearCanvas()" class="mt-2 text-sm text-red-500 hover:text-red-700">
+      Clear Drawing
+    </button>
+  </div>
+
+  <!-- Signature Section -->
+  <div class="mb-6">
+    <label for="signatureButton" class="block text-sm font-medium text-gray-700 mb-2">Signature</label>
+    <button id="signatureButton" (click)="openSignaturePad()" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg">
+      Add Signature
+    </button>
+
+    <div *ngIf="signatureDataUrl" class="mt-4">
+      <p class="text-sm text-gray-500 mb-2">Signature Preview:</p>
+      <img [src]="signatureDataUrl" alt="Signature" class="h-20 border border-gray-300 rounded-lg">
+      <button (click)="clearSignature()" class="ml-2 text-red-500 hover:text-red-700">
+        Clear
+      </button>
+    </div>
+  </div>
+
+  <!-- Signature Modal -->
+  <div *ngIf="showSignaturePad" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+    <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-md">
+      <h2 class="text-xl font-semibold mb-4">Draw Your Signature</h2>
+      <canvas #signatureCanvas width="450" height="200"
+        class="border border-gray-300 rounded-lg bg-white w-full cursor-crosshair"
+        (mousedown)="startDrawing($event, 'signature')"
+        (touchstart)="startDrawing($event, 'signature')"
+        (mousemove)="draw($event)"
+        (touchmove)="draw($event)"
+        (mouseup)="stopDrawing()"
+        (touchend)="stopDrawing()">
+      </canvas>
+      <div class="flex justify-end space-x-3 mt-4">
+        <button (click)="clearSignature()" class="px-4 py-2 border border-gray-300 rounded-lg">
+          Clear
+        </button>
+        <button (click)="closeSignaturePad()" class="px-4 py-2 border border-gray-300 rounded-lg">
+          Cancel
+        </button>
+        <button (click)="saveSignature()" class="px-4 py-2 bg-blue-500 text-white rounded-lg">
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Submit Button -->
+  <button (click)="saveData()" [disabled]="!signatureDataUrl"
+    class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 rounded-lg mt-4">
+    Submit Form
+  </button>
+
+  <!-- Submitted Data -->
+  <div *ngIf="submittedData.length > 0" class="mt-8">
+    <h2 class="text-xl font-semibold mb-4">Submitted Signatures</h2>
+    <div *ngFor="let entry of submittedData" class="border border-gray-200 rounded-lg p-4 mb-4">
+      <p><strong>Name:</strong> {{ entry.name }}</p>
+      <p class="mt-2"><strong>Signature:</strong></p>
+      <img [src]="entry.signature" alt="Signature" class="h-20 mt-2">
+      <p class="mt-2 text-sm text-gray-500">{{ entry.timestamp | date:'medium' }}</p>
+    </div>
+  </div>
+</div>
