@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50"
      role="dialog"
      aria-labelledby="form2-modal-title">
@@ -9,18 +10,56 @@
         <select id="title1" formControlName="title" class="flex-1 bg-sky-900 text-white p-1 rounded">
           <option value="">-- Select --</option>
           <option *ngFor="let type of inspectionTypes" [value]="type">{{ type }}</option>
+=======
+<<<<<<< HEAD
+<!-- Modal -->
+<div
+  class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+  (click)="closeModal()"
+  (keydown.escape)="closeModal()"
+  tabindex="0"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="modal-title"
+>
+  <div
+    class="bg-white p-6 rounded shadow max-w-md w-full"
+    (click)="stopClickPropagation($event)"
+  >
+    <h2 id="modal-title" class="text-lg font-bold mb-4">Add Check Entry</h2>
+    <form [formGroup]="form2" (ngSubmit)="onSubmit()" class="space-y-4">
+      <div class="flex items-center">
+        <label for="title-select" class="w-32">Title</label>
+        <select
+          id="title-select"
+          formControlName="title"
+          class="flex-1 bg-sky-900 text-white p-1 rounded"
+        >
+          <option *ngFor="let t of inspectionTypes" [value]="t">{{ t }}</option>
+>>>>>>> 03f36db711af413af539a96028dc74b3739fc9b5
         </select>
       </div>
 
       <div class="flex items-center">
+<<<<<<< HEAD
         <label for="checks" class="w-32">Check</label>
         <select id="checks" formControlName="checks" class="flex-1 bg-sky-900 text-white p-1 rounded">
           <option value="">-- Select --</option>
           <option *ngFor="let part of structureParts" [value]="part">{{ part }}</option>
+=======
+        <label for="checks-select" class="w-32">Check</label>
+        <select
+          id="checks-select"
+          formControlName="checks"
+          class="flex-1 bg-sky-900 text-white p-1 rounded"
+        >
+          <option *ngFor="let p of structureParts" [value]="p">{{ p }}</option>
+>>>>>>> 03f36db711af413af539a96028dc74b3739fc9b5
         </select>
       </div>
 
       <div class="flex items-center">
+<<<<<<< HEAD
         <label for="observation" class="w-32">Observation</label>
         <input id="observation" formControlName="observation" class="flex-1 bg-sky-900 text-white p-1 rounded" />
       </div>
@@ -35,7 +74,155 @@
           <button type="button" (click)="onCancel()" class="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500">Cancel</button>
           <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save</button>
         </div>
+=======
+        <label for="inspdate-input" class="w-32">Date</label>
+        <input
+          id="inspdate-input"
+          type="date"
+          formControlName="inspdate"
+          class="flex-1 bg-sky-900 text-white p-1 rounded"
+        />
+      </div>
+
+      <div class="flex items-center">
+        <label for="reps-input" class="w-32">Reps Present</label>
+        <input
+          id="reps-input"
+          type="number"
+          formControlName="Reps"
+          class="flex-1 bg-sky-900 text-white p-1 rounded"
+        />
+      </div>
+
+      <div class="flex items-center">
+        <label for="observation-input" class="w-32">Observation</label>
+        <input
+          id="observation-input"
+          formControlName="observation"
+          class="flex-1 bg-sky-900 text-white p-1 rounded"
+        />
+      </div>
+
+      <div class="flex items-center">
+        <label for="remarks-input" class="w-32">Remarks</label>
+        <input
+          id="remarks-input"
+          formControlName="remarks"
+          class="flex-1 bg-sky-900 text-white p-1 rounded"
+        />
+      </div>
+
+      <div class="text-center pt-4">
+        <button
+          type="submit"
+          [disabled]="!form2.valid"
+          class="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600"
+        >
+          Save
+        </button>
+>>>>>>> 03f36db711af413af539a96028dc74b3739fc9b5
       </div>
     </form>
   </div>
 </div>
+<<<<<<< HEAD
+=======
+=======
+<div class="p-4">
+  <!-- Modal -->
+  <div
+    *ngIf="showModal"
+    class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+    (click)="closeModal()"
+    (keydown.escape)="closeModal()"
+    tabindex="0"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
+  >
+    <div
+      class="bg-white p-6 rounded shadow max-w-md w-full"
+      (click)="stopClickPropagation($event)"
+    >
+      <h2 id="modal-title" class="sr-only">Form Modal</h2>
+      <app-form-field1 (form1Submit)="handleForm1Submit($event)"></app-form-field1>
+    </div>
+  </div>
+
+  <!-- Form -->
+  <form [formGroup]="form2" (ngSubmit)="onSubmit()" class="space-y-4">
+
+    <div class="flex items-center">
+      <label for="title-select" class="w-32">Title</label>
+      <select
+        id="title-select"
+        formControlName="title"
+        class="flex-1 bg-sky-900 text-white p-1 rounded"
+      >
+        <option *ngFor="let t of inspectionTypes" [value]="t">{{ t }}</option>
+      </select>
+    </div>
+
+    <div class="flex items-center">
+      <label for="checks-select" class="w-32">Check</label>
+      <select
+        id="checks-select"
+        formControlName="checks"
+        class="flex-1 bg-sky-900 text-white p-1 rounded"
+      >
+        <option *ngFor="let p of structureParts" [value]="p">{{ p }}</option>
+      </select>
+    </div>
+
+    <div class="flex items-center">
+      <label for="inspdate-input" class="w-32">Date</label>
+      <input
+        id="inspdate-input"
+        type="date"
+        formControlName="inspdate"
+        class="flex-1 bg-sky-900 text-white p-1 rounded"
+      />
+    </div>
+
+    <div class="flex items-center">
+      <label for="reps-input" class="w-32">Reps Present</label>
+      <input
+        id="reps-input"
+        type="number"
+        formControlName="Reps"
+        class="flex-1 bg-sky-900 text-white p-1 rounded"
+      />
+    </div>
+
+    <div class="flex items-center">
+      <label for="observation-input" class="w-32">Observation</label>
+      <input
+        id="observation-input"
+        formControlName="observation"
+        class="flex-1 bg-sky-900 text-white p-1 rounded"
+      />
+    </div>
+
+    <div class="flex items-center">
+      <label for="remarks-input" class="w-32">Remarks</label>
+      <input
+        id="remarks-input"
+        formControlName="remarks"
+        class="flex-1 bg-sky-900 text-white p-1 rounded"
+      />
+    </div>
+
+    <div class="text-center pt-4">
+      <button
+        type="submit"
+        [disabled]="!form2.valid"
+        class="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600"
+      >
+        Save
+      </button>
+    </div>
+
+  </form>
+</div>
+>>>>>>> 1505aa24dbf61226c00c70103f3e6b81f7bf0658
+>>>>>>> 03f36db711af413af539a96028dc74b3739fc9b5

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <app-form-field1 *ngIf="formField1" (form1Submit)="handleForm1Submit($event)">
 </app-form-field1>
 
@@ -20,6 +21,31 @@
 
     <div class="font-semibold">Trial Title</div>
     <div class="col-span-3">HANGAR STRUCTURE SOUNDNESS AND PRESERVATION INSPECTION</div>
+=======
+<<<<<<< HEAD
+<!-- Form1 Modal - disappears when clicking outside -->
+<div *ngIf="!formField1" 
+     class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+     (click)="closeForm1()"
+     (keydown.escape)="closeForm1()"
+     tabindex="0">
+  <div class="bg-white p-6 rounded shadow max-w-md w-full relative" (click)="$event.stopPropagation()">
+    <button (click)="closeForm1()" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
+      ✕
+    </button>
+    <app-form-field1 (form1Submit)="handleForm1Submit($event)"></app-form-field1>
+  </div>
+</div>
+
+<!-- Displaying form1 data -->
+<div class="mb-4 text-left">
+  <h2 class="text-xl font-bold text-center text-red-700">Parameters of QC Checks</h2>
+  <div class="grid grid-cols-2 gap-4 mt-2">
+    <div><strong>Ship:</strong> {{ form1Data?.ship || '—' }}</div>
+    <div><strong>Date:</strong> {{ form1Data?.inspdate || '—' }}</div>
+    <div><strong>Occasion:</strong> {{ form1Data?.occasion || '—' }}</div>
+    <div><strong>Reps Present:</strong> {{ form1Data?.Reps || '—' }}</div>
+>>>>>>> 03f36db711af413af539a96028dc74b3739fc9b5
   </div>
 </div>
 
@@ -29,27 +55,39 @@
     <thead>
       <tr>
         <th class="border px-4 py-2">Title</th>
+<<<<<<< HEAD
         <th class="border px-4 py-2">Checks</th>
+=======
+        <th class="border px-4 py-2">Check</th>
+>>>>>>> 03f36db711af413af539a96028dc74b3739fc9b5
         <th class="border px-4 py-2">Observation</th>
         <th class="border px-4 py-2">Remarks</th>
         <th class="border px-4 py-2">Actions</th>
       </tr>
     </thead>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 03f36db711af413af539a96028dc74b3739fc9b5
     <tbody>
       <tr *ngFor="let item of form2DataList; let i = index">
         <td class="border px-4 py-2">{{ item.title }}</td>
         <td class="border px-4 py-2">{{ item.checks }}</td>
         <td class="border px-4 py-2">{{ item.observation }}</td>
         <td class="border px-4 py-2">{{ item.remarks }}</td>
+<<<<<<< HEAD
         <td class="border px-4 py-2 text-center space-x-2">
           <button (click)="editRow(i)" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
             Edit
           </button>
+=======
+        <td class="border px-4 py-2 text-center">
+>>>>>>> 03f36db711af413af539a96028dc74b3739fc9b5
           <button (click)="deleteRow(i)" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
             Delete
           </button>
         </td>
+<<<<<<< HEAD
 
       </tr>
 
@@ -62,6 +100,9 @@
       </tr>
 
 
+=======
+      </tr>
+>>>>>>> 03f36db711af413af539a96028dc74b3739fc9b5
     </tbody>
   </table>
 
@@ -71,6 +112,7 @@
     </button>
   </div>
 </div>
+<<<<<<< HEAD
 
 <!-- Recommendation/Remarks Section -->
 <!-- Recommendation/Remarks Section -->
@@ -109,3 +151,62 @@
 
 
 
+=======
+=======
+<!-- Modal -->
+<div *ngIf="!formField1" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+  <div class="bg-white p-6 rounded shadow max-w-md w-full">
+    <app-form-field1 (form1Submit)="handleForm1Submit($event)"></app-form-field1>
+  </div>
+</div>
+
+
+
+<!-- Displaying form1 data -->
+<!-- Displaying form1 data (always shown, even if null) -->
+<div class="mb-4 text-left">
+  <h2 class="text-xl font-bold text-center text-red-700">Parameters of QC Checks</h2>
+  <div class="grid grid-cols-2 gap-4 mt-2">
+    <div><strong>Ship:</strong> {{ form1Data?.ship || '—' }}</div>
+    <div><strong>Date:</strong> {{ form1Data?.inspdate || '—' }}</div>
+    <div><strong>Occasion:</strong> {{ form1Data?.occasion || '—' }}</div>
+    <div><strong>Reps Present:</strong> {{ form1Data?.Reps || '—' }}</div>
+  </div>
+</div>
+
+
+<!-- Displaying form2 data in a table -->
+<div class="p-4 max-w-4xl mx-auto">
+  <table class="table-auto w-full border border-collapse border-gray-300">
+    <thead>
+      <tr>
+        <th class="border px-4 py-2">Title</th>
+        <th class="border px-4 py-2">Check</th>
+        <th class="border px-4 py-2">Observation</th>
+        <th class="border px-4 py-2">Remarks</th>
+        <th class="border px-4 py-2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of form2DataList; let i = index">
+        <td class="border px-4 py-2">{{ item.title }}</td>
+        <td class="border px-4 py-2">{{ item.checks }}</td>
+        <td class="border px-4 py-2">{{ item.observation }}</td>
+        <td class="border px-4 py-2">{{ item.remarks }}</td>
+        <td class="border px-4 py-2 text-center">
+          <button (click)="deleteRow(i)" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="flex justify-end mt-4">
+    <button (click)="openForm2()" class="bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600">
+      Add Another
+    </button>
+  </div>
+</div>
+>>>>>>> 1505aa24dbf61226c00c70103f3e6b81f7bf0658
+>>>>>>> 03f36db711af413af539a96028dc74b3739fc9b5

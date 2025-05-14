@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- Modal Trigger (You can put this button anywhere you want to open the form) -->
 <button (click)="openForm()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
   Open Inspection Details Form
@@ -54,6 +55,11 @@
 <div *ngIf="formField1" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
   <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
     <h2 id="form1-modal-title" class="text-xl font-bold mb-4 text-center">Inspection Details</h2>
+=======
+<<<<<<< HEAD
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+  <div class="border border-green-600 p-4 w-full max-w-md bg-white shadow rounded">
+>>>>>>> 03f36db711af413af539a96028dc74b3739fc9b5
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-4">
       <div class="flex items-center">
         <label for="ship" class="w-32">Ship</label>
@@ -61,8 +67,13 @@
       </div>
 
       <div class="flex items-center">
+<<<<<<< HEAD
         <label for="date" class="w-32">Date</label>
         <input type="date" id="date" formControlName="date" class="flex-1 bg-sky-900 text-white p-1 rounded" />
+=======
+        <label for="inspdate" class="w-32">Date</label>
+        <input id="inspdate" type="date" formControlName="inspdate" class="flex-1 bg-sky-900 text-white p-1 rounded" />
+>>>>>>> 03f36db711af413af539a96028dc74b3739fc9b5
       </div>
 
       <div class="flex items-center">
@@ -71,6 +82,7 @@
       </div>
 
       <div class="flex items-center">
+<<<<<<< HEAD
         <label for="repsPresent" class="w-32">Reps Present</label>
         <input id="repsPresent" formControlName="repsPresent" class="flex-1 bg-sky-900 text-white p-1 rounded" />
       </div>
@@ -78,7 +90,53 @@
       <div class="flex justify-between pt-4">
         <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save</button>
         <button type="button" (click)="closeForm()" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Close</button>
+=======
+        <label for="reps" class="w-32">Reps Present</label>
+        <input id="reps" formControlName="Reps" class="flex-1 bg-sky-900 text-white p-1 rounded" />
+      </div>
+
+      <div class="text-center pt-4">
+        <button type="submit" class="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600">
+          Save
+        </button>
+>>>>>>> 03f36db711af413af539a96028dc74b3739fc9b5
       </div>
     </form>
   </div>
 </div>
+<<<<<<< HEAD
+=======
+=======
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+  <div class="border border-green-600 p-4 w-full max-w-md bg-white shadow rounded">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-4">
+      <div class="flex items-center">
+        <label for="ship" class="w-32">Ship</label>
+        <input id="ship" formControlName="ship" class="flex-1 bg-sky-900 text-white p-1 rounded" />
+      </div>
+
+      <div class="flex items-center">
+        <label for="inspdate" class="w-32">Date</label>
+        <input id="inspdate" type="date" formControlName="inspdate" class="flex-1 bg-sky-900 text-white p-1 rounded" />
+      </div>
+
+      <div class="flex items-center">
+        <label for="occasion" class="w-32">Occasion</label>
+        <input id="occasion" formControlName="occasion" class="flex-1 bg-sky-900 text-white p-1 rounded" />
+      </div>
+
+      <div class="flex items-center">
+        <label for="reps" class="w-32">Reps Present</label>
+        <input id="reps" formControlName="Reps" class="flex-1 bg-sky-900 text-white p-1 rounded" />
+      </div>
+
+      <div class="text-center pt-4">
+        <button type="submit" class="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600">
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+>>>>>>> 1505aa24dbf61226c00c70103f3e6b81f7bf0658
+>>>>>>> 03f36db711af413af539a96028dc74b3739fc9b5

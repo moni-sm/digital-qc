@@ -1,10 +1,16 @@
+<<<<<<< HEAD
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+=======
+<<<<<<< HEAD
+import { Injectable } from '@angular/core';
+>>>>>>> 03f36db711af413af539a96028dc74b3739fc9b5
 
 @Injectable({ providedIn: 'root' })
 export class FormDataService {
 
+<<<<<<< HEAD
   private readonly storageKey = 'formData';
   private recommendationData: any = null;
   private readonly form2DataKey = 'form2Data';
@@ -127,3 +133,42 @@ export class FormDataService {
 
 
 }
+=======
+  private formfield1: any = null;
+
+
+  setForm1Data(data: any) {
+    this.formfield1 = data;
+  }
+
+  getForm1Data() {
+    return this.formfield1;
+  }
+
+  hasForm1Data(): boolean {
+    return this.formfield1 !== null;
+  }
+}
+=======
+import { Injectable } from '@angular/core';
+
+@Injectable({ providedIn: 'root' })
+export class FormDataService {
+
+  private formfield1: any = null;
+
+
+  setForm1Data(data: any) {
+    this.formfield1 = data;
+  }
+
+  getForm1Data() {
+    return this.formfield1;
+  }
+
+  hasForm1Data(): boolean {
+    return this.formfield1 !== null;
+  }
+}
+>>>>>>> 1505aa24dbf61226c00c70103f3e6b81f7bf0658
+>>>>>>> 03f36db711af413af539a96028dc74b3739fc9b5

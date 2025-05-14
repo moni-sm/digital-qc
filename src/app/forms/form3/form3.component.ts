@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+<<<<<<< HEAD
 import { Component, ElementRef, Input, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -13,12 +14,19 @@ interface RecommendationData {
   attachment?: { name: string; content: string };
 }
 
+=======
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Form1Component } from '../form-field1/form-field.component';
+import { Form2Component } from '../form2/form2.component';
+>>>>>>> 03f36db711af413af539a96028dc74b3739fc9b5
 
 @Component({
   selector: 'app-form3',
   templateUrl: './form3.component.html',
   styleUrls: ['./form3.component.scss'],
   standalone: true,
+<<<<<<< HEAD
   imports: [MatDialogModule, CommonModule, Form1Component, ReactiveFormsModule],
 
 })
@@ -303,4 +311,49 @@ export class Form3Component implements OnInit {
     this.cdr.detectChanges();
   }
 
+=======
+  imports: [CommonModule, Form1Component, Form2Component],
+})
+export class Form3Component implements OnInit {
+  form!: FormGroup;
+  formField1 = false;
+  showForm2 = false;
+  form2DataList: any[] = [];
+  form1Data: any = null;
+
+  ngOnInit(): void {
+    this.form = new FormGroup({
+      inspdate: new FormControl('', Validators.required),
+      Reps: new FormControl('', [Validators.required, Validators.min(1)]),
+    });
+  }
+
+  handleForm1Submit(data: any): void {
+    this.form1Data = data;
+    this.formField1 = true;
+  }
+
+  closeForm1(): void {
+    this.formField1 = true;
+  }
+
+  openForm2(): void {
+    this.showForm2 = true;
+  }
+
+  handleForm2Submit(data: any): void {
+    this.form2DataList.unshift(data);
+    this.showForm2 = false;
+  }
+
+  closeForm2(): void {
+    this.showForm2 = false;
+  }
+
+  deleteRow(index: number): void {
+    if (confirm('Are you sure you want to delete this entry?')) {
+      this.form2DataList.splice(index, 1);
+    }
+  }
+>>>>>>> 03f36db711af413af539a96028dc74b3739fc9b5
 }

@@ -13,6 +13,7 @@ const indexHtml = readFileSync(join(DIST_FOLDER, 'index.html')).toString();
 
 const app = express();
 
+<<<<<<< HEAD
 import cors from 'cors';
 app.use(cors({ origin: true, credentials: true }));
 
@@ -25,6 +26,8 @@ app.post('/api/submit', express.json(), (req, res) => {
 
 
 
+=======
+>>>>>>> 03f36db711af413af539a96028dc74b3739fc9b5
 // Serve static files
 app.get('*.*', express.static(DIST_FOLDER, { maxAge: '1y' }));
 
@@ -46,8 +49,11 @@ app.get('*', async (req, res) => {
   res.send(html);
 });
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 03f36db711af413af539a96028dc74b3739fc9b5
 const port = process.env['PORT'] ?? 4000;
 
 app.listen(port, () => {
